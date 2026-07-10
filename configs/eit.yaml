@@ -1,0 +1,40 @@
+data:
+  name: EIT
+  datapath: /data02/jongkwonoh/data/Diffusion/DiffusionPDE/data/testing/eit_test_0326.pt
+  whole_dataset: False
+  offset: 0
+
+test:
+  pre-trained : /data02/jongkwonoh/checkpoint/Diffusion/DiffusionPDE/pretrained-eit-ellipse_34channel/00001-EITDataset(train)-uncond-ddpmpp-edm-gpus1-batch100-fp32/best_model.pkl
+  iterations: 2000
+
+generate:
+  seed: 0
+  device: cuda:7
+  batch_size: 1
+
+  sigma_min: 0.002
+  sigma_max: 80
+  rho: 7
+
+  is_mask: True  # True : 16*13, False : 64*64
+  is_PDE_loss: True # True : Use PDE Loss
+  save_root: 34channel_pde_16*13
+
+  zeta_obs: 1
+  zeta_pde: 1
+
+  use_EMA: True
+
+  step_target_obs: 0.1
+  step_target_pde: 1e-4
+
+  use_zeta_momentum_obs: True
+  use_zeta_momentum_pde: True
+
+  sync_zeta_ema_with_momentum_obs : True
+  sync_zeta_ema_with_momentum_pde : True
+
+  use_pde_ortho: True
+
+  is_plot: True
