@@ -1,0 +1,39 @@
+data:
+  name: EIT
+  datapath: ./data/testing/eit_test_0326.pt
+  whole_dataset: False
+  offset: 0
+
+test:
+  pre-trained : ./pretrained/best_model.pkl
+  iterations: 2000
+
+generate:
+  seed: 0
+  device: cuda:0
+
+  sigma_min: 0.002
+  sigma_max: 80
+  rho: 7
+
+  is_mask: True  # True : 16*13, False : 64*64
+  is_PDE_loss: True # True : Use PDE Loss
+  save_root: pde_16*13
+
+  zeta_obs: 1
+  zeta_pde: 1
+
+  use_EMA: True
+
+  step_target_obs: 0.1
+  step_target_pde: 1e-4
+
+  use_zeta_momentum_obs: True
+  use_zeta_momentum_pde: True
+
+  sync_zeta_ema_with_momentum_obs : True
+  sync_zeta_ema_with_momentum_pde : True
+
+  use_pde_ortho: True
+
+  is_plot: True

@@ -1,0 +1,6 @@
+/data*
+/pretrained*
+/__MACOSX*
+/*/__pycache__*
+/results
+/*.txt
