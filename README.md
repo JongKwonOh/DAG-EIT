@@ -11,7 +11,7 @@ Implementation of DAG-EIT in PyTorch.
 Clone the repository and move to the project directory:
 
 ```bash
-git clone https://github.com/JongKwonOh/DAG-EIT.git
+git clone <current url>
 cd DAG-EIT
 ```
 
